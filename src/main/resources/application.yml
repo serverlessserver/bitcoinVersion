@@ -1,0 +1,19 @@
+jwt:
+  header: Authorization
+  secret: my-very-secret-key
+
+spring:
+  resources:
+    chain:
+      enabled: true
+
+management:
+  security:
+    enabled: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.security: DEBUG
