@@ -168,7 +168,7 @@ public class RuntimeCommunicator {
             default:
                 break;
         }
-
+        System.out.println("command " + args);
         return args;
     }
 
@@ -202,9 +202,9 @@ public class RuntimeCommunicator {
             throw new RuntimeConnectException("error while reading runtime output");
         }
 
-        /*if (sbErr.length() != 0 && !sbErr.toString().startsWith("SECURITY WARNING")) {
+        if (sbErr.length() != 0 && !sbErr.toString().startsWith("SECURITY WARNING")) {
             throw new RuntimeConnectException(sbErr.toString());
-        }*/
+        }
 
         try {
             p.waitFor();

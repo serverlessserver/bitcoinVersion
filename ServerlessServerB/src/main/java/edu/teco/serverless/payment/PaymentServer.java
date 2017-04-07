@@ -63,13 +63,21 @@ public class PaymentServer {
 
     private static PaymentServer instance;
 
+
     private PaymentServer() {
 
         this.price = Coin.valueOf(PRICE_OF_PRODUCT);
 
-        this.walletAppKit = new WalletAppKit(ENVIRONMENT, new File("."), NAME_OF_WALLET_FILE);
+        Context context = new Context(TestNet3Params.get());
+        Context.propagate(context);
+
+        this.walletAppKit = new WalletAppKit(context, new File("..\\BitcoinWallet"), NAME_OF_WALLET_FILE);
+
         this.walletAppKit.startAsync();
         this.walletAppKit.awaitRunning();
+
+
+        logger.info("Wallet is initialized");
 
         init();
     }
